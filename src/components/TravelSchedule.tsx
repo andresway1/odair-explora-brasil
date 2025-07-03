@@ -1,13 +1,20 @@
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { MapPin } from 'lucide-react';
 
 const TravelSchedule = () => {
   const destinations = [
     {
       name: 'Poços de Caldas, MG',
-      image: 'https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      images: [
+        'https://i.imgur.com/kMRjWCI.jpg',
+        'https://i.imgur.com/WlkGMhR.jpg',
+        'https://i.imgur.com/dPZ6SGl.jpg',
+        'https://i.imgur.com/YaAY4gG.jpg',
+        'https://i.imgur.com/OtFrqfC.jpg'
+      ],
       date: 'Março 2024',
       highlights: ['Águas termais', 'Centro histórico', 'Teleférico', 'Gastronomia mineira'],
       description: 'Relaxe nas famosas águas termais e explore a charmosa arquitetura da cidade.'
@@ -56,15 +63,32 @@ const TravelSchedule = () => {
               style={{ animationDelay: `${index * 0.2}s` }}
             >
               <div className="relative overflow-hidden">
-                <img 
-                  src={destination.image}
-                  alt={destination.name}
-                  className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute top-4 left-4 bg-travel-blue text-white px-4 py-2 rounded-full font-semibold">
+                {destination.images ? (
+                  <Carousel className="w-full">
+                    <CarouselContent>
+                      {destination.images.map((image, imgIndex) => (
+                        <CarouselItem key={imgIndex}>
+                          <img 
+                            src={image}
+                            alt={`${destination.name} - ${imgIndex + 1}`}
+                            className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                          />
+                        </CarouselItem>
+                      ))}
+                    </CarouselContent>
+                    <CarouselPrevious className="left-4" />
+                    <CarouselNext className="right-4" />
+                  </Carousel>
+                ) : (
+                  <img 
+                    src={destination.image}
+                    alt={destination.name}
+                    className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                )}
+                <div className="absolute top-4 left-4 bg-travel-blue text-white px-4 py-2 rounded-full font-semibold z-10">
                   {destination.date}
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
               
               <CardHeader className="pb-3">
