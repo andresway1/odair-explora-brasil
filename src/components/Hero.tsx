@@ -2,6 +2,13 @@
 import { Button } from '@/components/ui/button';
 
 const Hero = () => {
+  const handleScrollToDestinations = () => {
+    const destinationsSection = document.getElementById('destinos');
+    if (destinationsSection) {
+      destinationsSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section 
       id="inicio" 
@@ -26,6 +33,7 @@ const Hero = () => {
         <Button 
           size="lg" 
           className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold px-8 py-4 text-lg rounded-full transform hover:scale-105 transition-all duration-300 animate-bounce-gentle"
+          onClick={handleScrollToDestinations}
         >
           Descubra as Próximas Aventuras
         </Button>

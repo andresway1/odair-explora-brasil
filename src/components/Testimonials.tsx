@@ -1,6 +1,5 @@
 
 import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
 
 const Testimonials = () => {
   const testimonials = [
@@ -40,7 +39,7 @@ const Testimonials = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-12">
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {testimonials.map((testimonial, index) => (
             <Card 
               key={testimonial.name}
@@ -80,16 +79,6 @@ const Testimonials = () => {
               </CardContent>
             </Card>
           ))}
-        </div>
-
-        {/* CTA Button */}
-        <div className="text-center animate-fade-in">
-          <Button 
-            size="lg"
-            className="bg-gradient-travel hover:opacity-90 text-white font-bold px-8 py-4 text-lg rounded-full transform hover:scale-105 transition-all duration-300"
-          >
-            Leia mais depoimentos
-          </Button>
         </div>
       </div>
     </section>

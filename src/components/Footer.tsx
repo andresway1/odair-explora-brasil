@@ -1,7 +1,14 @@
 
-import { MapPin, Phone, Facebook, Instagram, Youtube, Linkedin } from 'lucide-react';
+import { MapPin, Phone, Facebook, Instagram, Youtube } from 'lucide-react';
 
 const Footer = () => {
+  const handleScrollToDestinations = () => {
+    const destinationsSection = document.getElementById('destinos');
+    if (destinationsSection) {
+      destinationsSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <footer id="contato" className="bg-gray-900 text-white py-16">
       <div className="container mx-auto px-4">
@@ -18,7 +25,6 @@ const Footer = () => {
               <Facebook className="w-6 h-6 text-gray-400 hover:text-blue-500 cursor-pointer transition-colors duration-300" />
               <Instagram className="w-6 h-6 text-gray-400 hover:text-pink-500 cursor-pointer transition-colors duration-300" />
               <Youtube className="w-6 h-6 text-gray-400 hover:text-red-500 cursor-pointer transition-colors duration-300" />
-              <Linkedin className="w-6 h-6 text-gray-400 hover:text-blue-400 cursor-pointer transition-colors duration-300" />
             </div>
           </div>
 
@@ -37,10 +43,38 @@ const Footer = () => {
           <div className="space-y-4">
             <h4 className="text-lg font-semibold text-white">Destinos</h4>
             <ul className="space-y-2">
-              <li className="text-gray-300">Poços de Caldas, MG</li>
-              <li className="text-gray-300">São Lourenço, MG</li>
-              <li className="text-gray-300">Caldas Novas, GO</li>
-              <li className="text-gray-300">Bertioga, SP</li>
+              <li>
+                <button 
+                  onClick={handleScrollToDestinations}
+                  className="text-gray-300 hover:text-white transition-colors duration-300 text-left"
+                >
+                  Poços de Caldas, MG
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={handleScrollToDestinations}
+                  className="text-gray-300 hover:text-white transition-colors duration-300 text-left"
+                >
+                  São Lourenço, MG
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={handleScrollToDestinations}
+                  className="text-gray-300 hover:text-white transition-colors duration-300 text-left"
+                >
+                  Caldas Novas, GO
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={handleScrollToDestinations}
+                  className="text-gray-300 hover:text-white transition-colors duration-300 text-left"
+                >
+                  Bertioga, SP
+                </button>
+              </li>
             </ul>
           </div>
 
@@ -51,16 +85,15 @@ const Footer = () => {
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-travel-blue flex-shrink-0" />
                 <div>
-                  <p className="text-gray-300">(11) 99999-9999</p>
+                  <p className="text-gray-300">(19) 98154-3052</p>
                   <p className="text-gray-400 text-sm">WhatsApp</p>
                 </div>
               </div>
               <div className="flex items-start space-x-3">
                 <MapPin className="w-5 h-5 text-travel-green flex-shrink-0 mt-1" />
                 <div>
-                  <p className="text-gray-300">Rua das Viagens, 123</p>
-                  <p className="text-gray-300">Centro - São Paulo, SP</p>
-                  <p className="text-gray-400 text-sm">CEP: 01234-567</p>
+                  <p className="text-gray-300">R. Carmela Zupi Cúrcio Maluf 65</p>
+                  <p className="text-gray-300">Parque Imperador</p>
                 </div>
               </div>
             </div>
