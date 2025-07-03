@@ -20,9 +20,11 @@ const Header = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <h1 className="text-2xl font-bold bg-gradient-travel bg-clip-text text-transparent">
-              Odair Viagens
-            </h1>
+            <img 
+              src="/lovable-uploads/f4539cae-1ec3-43b6-a428-cc815626ca17.png" 
+              alt="Odair Viagens" 
+              className="h-12 w-auto"
+            />
           </div>
 
           {/* Desktop Navigation */}
